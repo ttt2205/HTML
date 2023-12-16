@@ -1,0 +1,125 @@
+=========================================================================================================================
+                                Chapter 3: Strings
+=========================================================================================================================
+- .length
+-> return length of strings
+
+-------------------------------------------------------------------------------------------------------------------------
+- .charAt(index) 
+-> trả về ký tự ở index cần lấy
+
+-------------------------------------------------------------------------------------------------------------------------
+- .indexOf(string) 
+
+-> trả về vị trí tìm thấy đầu tiên từ trái sang phải
+(string là character or group characters )
+
+-------------------------------------------------------------------------------------------------------------------------
+- .lastIndexOf(string) 
+
+-> trả về vị trí tìm thấy đầu tiên từ phải sang trái 
+(string là character or group characters )
+
+-------------------------------------------------------------------------------------------------------------------------
+- .slice(start, end) 
+
+-> returns the characters from the start position to the ending position.  
+-> Note, the returned result does not include the ending position. (không bao gồm vị trí kết thúc)
+-> Note, if the ending position parameteris not provided, the slice method, returns the characters from the startposition to the end of the string.
+-> Note, if the ending position parameter is less than or equal to the start position. Parameter, nothing will be returned.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .toUpperCase() 
+-> The ttoUpperCase method returnsthe string in all uppercase.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .toLowerCase() 
+-> The toLowerCase method returnsthe string in all lowercase.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .includes(string) 
+
+-> Tìm kiếm chuỗi string có trong chuỗi đã gọi hay không
+-> The includes method returns Boolean data. 
+-> If the character or group ofcharacters we provide, the method is not inside the string. The includes method returns falses.
+-> Likewise (tương tự), if they are inside the string,the Includes method returns true.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .split()
+
+-> trả về một mảng gồm các phần tử là chuỗi đã được phân tách.
+VD: 
+    1.const myVariable = "Mathematics";
+    myVariable.split("e"); // kí tự "e"
+KQ  -> ["Math","matics"]
+
+    2.const myVariable = "Math";
+    myVariable.split(""); // không có ký tụ
+KQ  -> ["M","a","t","h"]
+
+    3.const myVariable = "Hello World!";
+    myVariable.split(" "); // ký tự khoảng trắng 
+KQ  -> ["Hello","World!"]
+
+
+=========================================================================================================================
+                                Chapter 4: Numbers
+=========================================================================================================================
+- Number(myString) 
+
+-> biến một chuỗi có ký tự số thành số
+-> If we use the 'number function' on data that cannot be converted (chuyển đổi) to a number. The number function will return NaN,which is an acronym for not a number. 
+VD: nếu myString có ký tự là chữ hoặc là undefined thì trả về NaN (not a number)
+-> true -> trả về 1
+-> false - trả về 0
+
+-------------------------------------------------------------------------------------------------------------------------
+- Number.isInterger(myNumber)
+
+-> The Number.isInterger() method determines whether the passed value is an integer.
+(Kiểm tra xem myNumber có phải là số.)
+-> Trả về true hoặc false
+
+-------------------------------------------------------------------------------------------------------------------------
+- Number.parseFloat()
+
+-> The method parses an argument and returns a floating point number. If a number cannot be parsed from the argument, it returns NaN.
+(loại bỏ các ký tự không phải số và trả về giá trị có kiểu dữ liệu số (number), nếu không được sẽ trả về NaN)
+VD:
+    1. const myString = "42.123abc"
+    Number.parseFloat(myString); 
+KQ  -> 42.123 // kiểu numbers
+
+-------------------------------------------------------------------------------------------------------------------------
+- .toFixed()
+
+-> Làm tròn tới chữ số thập phân thứ n
+-> The method formats a number according to how many decimal (số thập phân) points you provide (cung cấp) as the parameter (tham số).
+-> Trả về kiểu dữ liệu là string
+VD:
+    1. const myString = "42.123abc"
+    Number.parseFloat(myString).toFixed(1); 
+KQ  -> 42.1 // kiểu string
+
+-------------------------------------------------------------------------------------------------------------------------
+- Number.parseInt() 
+
+-> The method parses a string argument and returns an integer 
+(loại bỏ các ký tự không phải số và trả về giá trị có kiểu dữ liệu số (number) nhưng là số nguyên, nếu không được sẽ trả về NaN)
+VD:
+    1. const myString = "42.123abc"
+    Number.parseInt(myString); 
+KQ  -> 42 // kiểu numbers
+
+-------------------------------------------------------------------------------------------------------------------------
+- .toString()
+
+-> chuyển đổi một kiểu dữ liệu number về dạng kiểu dữ liệu string.
+
+-------------------------------------------------------------------------------------------------------------------------
+- NaN is an acronym for Not a Number
+- Number.isNaN() 
+
+-> Kiểm tra xem có phải NaN
+-> NaN có kiểu dữ liệu là number.
+-> The method determines whether the passed value is NaN and its type is Number.

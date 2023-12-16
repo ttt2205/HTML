@@ -1,0 +1,10 @@
+1. Start Here 
+2. Head Element
+3. Text basic
+4. List Type
+5. Add links 
+6. Add Image
+7. Semantic tags: hệ thống phân cấp ngữ nghĩa 
+8. Create tables
+9. Forms and Inputs
+10. Project 
