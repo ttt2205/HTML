@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.columns {
+    /* -> chia cột làm 4 */
+    column-count: 4;
+    column-width: 250px;
+    /* columns: 4 250px -> cách viết ngắn gọn */
+    column-rule: 2px solid black;  /* -> tạo vách ngăn */
+    column-gap: 2rem; /* -> khoảng cách giữa vách ngăn và nội dung */
+}
+
+.columns h2 {
+    margin-top: 0;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    /* -> ngăn chặn lấn sang cột kế tiếp */
+    break-inside: avoid;
+}
+
+.columns p , h2 {
+    margin-bottom: 1rem;
+}
+
+.quote {
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+    /* column-span: all -> bao phủ toàn bộ cột */
+    column-span: all;
+}
+
+.columns .quote {
+    margin-top: 1rem;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
