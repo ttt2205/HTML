@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 500px;
+}
+
+nav {
+    background-color: black;
+    height: 50px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+#view1 {
+    margin-top: 50px;
+    height: 300px;
+    position: relative;
+}
+.gray {
+    background-color: gray;
+}
+
+#view1 div {
+    height: 200px;
+    width: 50%;
+    margin: 50px 25%;
+    position: absolute;
+}
+.navy {
+    background-color: navy;
+}
+
+h2 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    width: 60%;
+    margin: 50px 20%;
+    position: absolute;
+}
+
+/* Phần CSS của JS */
+.height100 {
+    height: 100px;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+/* Exercise 2: */
+#view2 {
+    border: 1px solid black;
+    height: 400px;
+    background-color: rgb(51, 76, 124);
+}
+
+#view2 .container {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin: 0px 20px;
+    background-color: gray;
+    height: 400px;
+    position: relative;
+}
+
+.input-container {
+    position: absolute;
+    margin-top: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+#myForm-container {
+    margin-bottom: 10px;
+}
+
+#myForm-container input {
+    position: absolute;
+    width: 90%;
+    height: 20px;
+}

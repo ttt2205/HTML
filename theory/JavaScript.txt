@@ -208,8 +208,187 @@ KQ->    // Expected output: 1
 
 -------------------------------------------------------------------------------------------------------------------------
 - .splice(start, end, temp)
+- .splice(start, end)
+- .splice(Start)
+- .splice(start, end, temp1, temp2, ..., tempN)
 
 -> xóa, thay thế ,chèn phần tử vào mảng
--> xóa:
+VD: xóa
+        const a = [1,2,3,4];
+        a.splice(1,1); // xóa vị trí thứ nhất
+        a.splice(1,2); // xóa vị trí thứ 1 đến 2
+        a.splice(1,0); // không xóa vị trí nào
+        s.splice(1); // cắt từ vị trí thứ 1 tới cuối mảng
+
+VD: thay thế, chèn
+        const a = [1,2,3,4];
+        a.splice(1,1,5); // xóa vị trí 1 và thay thế bằng 5
+        a.splice(1,0,5); // chèn 5 vào vị trí 1
+        a.splice(1,0,5,6,7); // chèn 5 6 7 bắt đầu bằng vị trí 1
+
+-------------------------------------------------------------------------------------------------------------------------
+- .slice(start)      // cắt từ vị trí 2 đến hết
+- .slice(start, end) // cắt từ start đến (end - 1)
+
+-> cắt lát
 VD:
-        
+        const a = [1,2,3,4,5,6];
+        a.slice(2); // cắt từ vị trí thứ 2 về sau
+        a.slice(2, 5); // cắt từ vị trí thứ 2 đến vị trí thứ 4
+
+-------------------------------------------------------------------------------------------------------------------------
+- .reverse() 
+
+-> đảo ngược lại mảng
+
+-------------------------------------------------------------------------------------------------------------------------
+- .concat()
+
+-> nối 2 mảng lại với nhau.
+VD:
+        const a = ['A','B'];
+        const b = ['C','D'];
+        const new = a.concat(b);
+
+-------------------------------------------------------------------------------------------------------------------------
+- .join("")
+
+-> nối một mảng thành một chuỗi, thêm kí tự để chèn giữa các kí tự trong chuỗi.
+
+-------------------------------------------------------------------------------------------------------------------------
+- Một số lưu ý khác về mảng:
+VD:
+        const a = ['A','B'];
+        const b = ['C','D'];
+        const new = [...a, ...b]; // lấy từng phần tử mảng ghép vào mảng new.
+        const new1 = [a, b]; // mảng có 2 phần tử là mảng a và mảng b.
+
+=========================================================================================================================
+                                Chapter 18: JSON
+=========================================================================================================================
+-> JSON: JavaScript Object Notation
+-> JSON is used to send and receive data.
+-> JSON is a text format that is completely language independent.
+-> Meaning JSON is used to send & receive data in many languages ...not just in JavaScript.
+
+=========================================================================================================================
+                                Chapter 20: DOM (DOM - Document Object Model)
+=========================================================================================================================
+=> <script defer src=""></script>
+-> thêm defer vào để HTML tải hết xong mới tải tệp JS.
+
+-------------------------------------------------------------------------------------------------------------------------
+- document.getElementByID("")
+- document.getElementByClassName("")
+- document.getElementByTagName("")
+
+-> sẽ trả về element hoặc HTMLCollection.
+-> có thể thao tác như mảng.
+
+-------------------------------------------------------------------------------------------------------------------------
+- document.querySelector("")
+-> chọn một element theo id, class, element đầu tiên gặp phải trong HTML.
+
+- document.querySelectorAll("")
+-> chọn toàn bộ element có id, class, element cần truy cập. Trả về một NodeList.
+
+-> Ký hiệu đi kèm: #id, .class, element.
+-> có thể thao tác như mảng.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .parentElement : truy cập tới phần tử cha.
+
+- .children : truy cập tới tất cả phần tử con. Trả về HTML Collection.
+
+- .childNodes : truy cập tới tất cả phần tử con và tất cả phần tử node. Trả về một NodeLists.
+
+- .hasChildNodes() : kiểm tra xem phần tử đang xét có phần tử con nào không. Trả về true/false.
+
+- .firstChild : lấy ra node đầu tiên trong phần tử chỉ định.
+
+- .firstElementChild : lấy ra element đầu tiên của phần tử chỉ định.
+
+- .lastChild : lấy ra cuối cùng tiên trong phần tử chỉ định.
+
+- .lastElementChild : lấy ra element cuối cùng của phần tử chỉ định.
+
+- .nextSibling : lấy ra node kế tiếp phía sau.
+
+- .nextElementSibling : lấy ra element kế tiếp phía sau.
+
+- .previousSibling : lấy ra node kế tiếp phía trước.
+
+- .previousElementSibling : lấy ra element kế tiếp phía trước.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .createElement("") 
+-> tạo thêm một element mới.
+
+- .append(element) 
+-> thêm element vào bên trong phần tử cha.
+
+- .remove() 
+-> xóa element truy cập.
+
+=========================================================================================================================
+                              Chapter 21: Event Listeners
+=========================================================================================================================
+Syntax: .addEventListener(event, function, useCapture)
+        .removeEventListener(event, function, useCapture)
+
+- useCapture: 
+-> Vấn đề 1:
+- dùng để ngăn cản sự nổi bọt của phần tử. Mặc định false (ko ngăn cản), true (ngăn cản) nhưng khi ngăn cản phần tử ngoài cùng sẽ đi ngược vào trong.
+- nên sử dụng thêm 'e.stopPropagation()' để ngăn chặn sự nổi bọt của các phần tử.
+- có thể để capture = false và thêm 'e.stopPropagation()' vào từng phần.
+
+-> Vấn đề 2:
+- khi sử dụng e.target ở phần tử trong cùng và ở phần tử ngoài vẫn dùng e.target thì sẽ là dùng e.target của phần tử đầu tiên gọi.
+- giải pháp dùng biến cho từng phần tử cụ
+
+-------------------------------------------------------------------------------------------------------------------------
+Syntax: .classList.add() : thêm một lớp mới. (lớp mới này sẽ không thể ghi đè lên lớp đã có nên cần phải xóa lớp đã định nghĩa)
+        .classList.remove() : xóa một lớp.
+        .classList.toggle() : nếu có thì xóa, nếu không có thì thêm.
+
+-------------------------------------------------------------------------------------------------------------------------
+- .preventDefault() 
+-> ngăn chặn hành vi mặc định của trình duyệt.
+
+
+=========================================================================================================================
+                              Chapter 22: Web API
+=========================================================================================================================
+        LocalStorage: dữ liệu không bị mất khi load hoặc tắt trang web trừ khi ta xóa nó.
+
+- localStorage.setItem("nameStorage", JSON.stringify(object));
+-> lưu object xuống LocalStorage.
+-> nameStorage: tên đặt cho biến lưu trữ dữ liệu trong LocalStorage.
+
+- JSON.parse(localStorage.getItem("nameStorage"));
+-> lấy object từ LocalStorage.
+-> nameStorage: tên đặt cho biến lưu trữ dữ liệu trong LocalStorage.
+
+- localStorage.removeItem("nameStorage");
+-> xóa object chỉ định trong LocalStorage.
+-> nameStorage: tên đặt cho biến lưu trữ dữ liệu trong LocalStorage.
+
+- localStorage.clear();
+-> xóa toàn bộ dữ liệu trong LocalStorage.
+
+- localStorage.key(index);
+-> lấy ra tên biến trong tại vị trí index trong LocalStorage.
+
+- localStorage.length;
+-> lấy ra chiều dài số lượng biến có trong LocalStorage.
+
+=========================================================================================================================
+                              Chapter 23: Modules
+=========================================================================================================================
+-> tự áp dụng từ khóa defer và nghiêm ngặt "use strict".
+-> export: xuất ra.
+-> import: nhập vào.
+
+=========================================================================================================================
+                              Chapter 24: Higher Order Functions
+=========================================================================================================================
